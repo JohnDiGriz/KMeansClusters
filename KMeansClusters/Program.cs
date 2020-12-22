@@ -13,13 +13,18 @@ namespace KMeansClusters
             var points = new List<Point>();
             Console.WriteLine("Enter path:");
             var text = File.ReadAllLines(Console.ReadLine());
+            int pointN = 0;
             foreach(var line in text)
             {
                 var coords = line.Split(",");
                 var point = new Point(coords.Count());
                 for (int i = 0; i < coords.Count(); i++)
+                {
                     point[i] = double.Parse(coords[i], CultureInfo.InvariantCulture);
+                }
+                point.Number = pointN;
                 points.Add(point);
+                pointN++;
             }
             var clusters5 = KMeansHandle.Clusterize(points, 5);
             var clusters7 = KMeansHandle.Clusterize(points, 7);
@@ -35,13 +40,10 @@ namespace KMeansClusters
             foreach(var cluster in clusters)
             {
                 str += $"Cluster {i}\n";
-                foreach(var point in cluster.Points)
-                {
-                    foreach (var coord in point._coordinates)
-                        str += $"{coord},";
-                    str.Remove(str.Length - 1);
-                    str += "\n";
-                }
+                foreach (var point in cluster.Points)
+                    str += $"{point.Number}, ";
+                str.Remove(str.Length - 2);
+                str += "\n";
                 i++;
             }
             return str;

@@ -9,6 +9,7 @@ namespace KMeansClusters.Data
         public List<double> _coordinates;
 
         public int N { get => _coordinates.Count; }
+        public int Number { get; set; }
         public Point(int n)
         {
             _coordinates = new List<double>();
