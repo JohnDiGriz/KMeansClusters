@@ -26,8 +26,8 @@ namespace KMeansClusters
                 points.Add(point);
                 pointN++;
             }
-            var clusters5 = KMeansHandle.Clusterize(points, 5);
-            var clusters7 = KMeansHandle.Clusterize(points, 7);
+            var clusters5 = KMeansHandler.Clusterize(points, 5);
+            var clusters7 = KMeansHandler.Clusterize(points, 7);
 
             File.WriteAllText("Res5.txt", DisplayRes(clusters5));
             File.WriteAllText("Res7.txt", DisplayRes(clusters7));

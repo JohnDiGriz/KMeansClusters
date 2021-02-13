@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace KMeansClusters
 {
-    public static class KMeansHandle
+    public static class KMeansHandler
     {
         public static HashSet<Cluster> Clusterize(List<Point> list, int k)
         {
